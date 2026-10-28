@@ -1,0 +1,118 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------ */
+/* Design tokens — use these via Tailwind utilities (bg-background...)  */
+/* The site uses a single dark "space" theme, so there is no light set. */
+/* ------------------------------------------------------------------ */
+:root {
+  color-scheme: dark;
+
+  --background: #050816;
+  --foreground: #ffffff;
+  --muted: #151030;
+  --muted-foreground: #aaa6c3;
+  --border: #2b2547;
+  --primary: #915eff;
+  --primary-foreground: #050816;
+  --surface: #100d25;
+  --surface-raised: #1d1836;
+
+  --gradient-green: #00cea8;
+  --gradient-pink: #bf61ff;
+  --star: #f272c8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+
+  --font-sans: var(--font-be-vietnam-pro);
+  --font-mono: var(--font-geist-mono);
+
+  --shadow-card: 0px 35px 120px -15px #211e35;
+
+  --breakpoint-xs: 28.125rem;
+
+  --animate-scroll-hint: scroll-hint 1.5s ease-in-out infinite;
+
+  @keyframes scroll-hint {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(1.5rem);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Gradient utilities (not expressible with plain Tailwind tokens)     */
+/* ------------------------------------------------------------------ */
+@utility bg-gradient-green-pink {
+  background-image: linear-gradient(
+    90.13deg,
+    var(--gradient-green) 1.9%,
+    var(--gradient-pink) 97.5%
+  );
+}
+
+@utility text-gradient-blue {
+  background-image: linear-gradient(to top, #2f80ed, #56ccf2);
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-gradient-green {
+  background-image: linear-gradient(to top, #11998e, #38ef7d);
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-gradient-pink {
+  background-image: linear-gradient(to top, #ec008c, #fc6767);
+  background-clip: text;
+  color: transparent;
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+  }
+
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
