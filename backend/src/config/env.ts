@@ -6,12 +6,12 @@ const envSchema = z.object({
   PORT: z.coerce.number().int().positive().default(4000),
   CORS_ORIGIN: z.string().default('http://localhost:3000'),
   LOG_LEVEL: z.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace']).default('info'),
-  // Gmail account that sends contact-form emails. Optional so the API still boots without it;
-  // the contact endpoint then answers 503 instead of silently dropping messages.
-  SMTP_USER: emptyAsUndefined(z.email()),
-  // Gmail App Password (16 letters). Google displays it in groups of 4, so strip the spaces.
-  SMTP_PASS: emptyAsUndefined(z.string().transform((value) => value.replace(/\s/g, ''))),
-  // Inbox that receives contact messages; defaults to SMTP_USER.
+  // Resend API key used to email contact-form messages. Email goes over HTTPS because free hosts
+  // (Render, Railway) block outbound SMTP. Optional so the API still boots without it; the contact
+  // endpoint then answers 503 instead of silently dropping messages.
+  RESEND_API_KEY: emptyAsUndefined(z.string().startsWith('re_')),
+  // Inbox that receives contact messages. Without a verified domain, Resend only delivers to the
+  // email address of the Resend account itself.
   CONTACT_RECEIVER: emptyAsUndefined(z.email()),
 });
 

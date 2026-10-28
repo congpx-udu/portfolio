@@ -1,24 +1,42 @@
-import nodemailer from 'nodemailer';
-
 import { env } from '@/config/env';
 import { logger } from '@/utils/logger';
 
-/**
- * Gmail SMTP transport, or `null` when SMTP_USER / SMTP_PASS are not configured.
- * Callers must handle `null` explicitly so a missing config never fails silently.
- */
-export const mailer =
-  env.SMTP_USER && env.SMTP_PASS
-    ? nodemailer.createTransport({
-        service: 'gmail',
-        auth: { user: env.SMTP_USER, pass: env.SMTP_PASS },
-        // Fail fast instead of keeping the visitor's request hanging on a slow SMTP server.
-        connectionTimeout: 10_000,
-        greetingTimeout: 10_000,
-        socketTimeout: 20_000,
-      })
-    : null;
+interface Email {
+  to: string;
+  subject: string;
+  text: string;
+  replyTo?: string;
+}
 
-if (!mailer) {
-  logger.warn('SMTP_USER/SMTP_PASS not set — POST /api/contact will respond 503');
+const RESEND_ENDPOINT = 'https://api.resend.com/emails';
+// Resend's shared test sender — works without verifying a domain of our own.
+const SENDER = 'Portfolio Contact <onboarding@resend.dev>';
+const REQUEST_TIMEOUT_MS = 10_000;
+
+/** Whether an email provider is configured. */
+export const isMailerConfigured = Boolean(env.RESEND_API_KEY);
+
+if (!isMailerConfigured) {
+  logger.warn('RESEND_API_KEY not set — POST /api/contact will respond 503');
+}
+
+/** Sends a plain-text email through the Resend HTTP API. Throws when delivery fails. */
+export async function sendEmail({ to, subject, text, replyTo }: Email): Promise<void> {
+  if (!env.RESEND_API_KEY) throw new Error('RESEND_API_KEY is not configured');
+
+  const response = await fetch(RESEND_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ from: SENDER, to: [to], subject, text, reply_to: replyTo }),
+    // Fail fast instead of keeping the visitor's request hanging on a slow provider.
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+  });
+
+  if (!response.ok) {
+    // Resend's error body explains the cause (invalid key, unverified recipient…); it holds no message content.
+    throw new Error(`Resend responded ${response.status}: ${await response.text()}`);
+  }
 }
