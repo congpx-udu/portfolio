@@ -1,20 +1,16 @@
-// Single source of truth for personal content. Edit this file to personalise the portfolio.
-// TODO: replace every placeholder below with your real information.
+// Single source of truth for personal content. Keep it in sync with the CV in public/cv/.
 
 export const siteConfig = {
   name: 'Phạm Xuân Công',
   role: 'Frontend Developer',
   tagline: 'Kiến tạo trải nghiệm số mượt mà, tối ưu hiệu năng và tỉ mỉ đến từng điểm ảnh.',
   description:
-    'Frontend Developer đam mê xây dựng các ứng dụng web hiện đại với React, Next.js và TypeScript. Luôn đặt trải nghiệm người dùng, tính dễ tiếp cận (a11y) và hiệu năng hệ thống làm trọng tâm.',
+    'Thực tập sinh Frontend với hơn một năm kinh nghiệm React và TypeScript, từng tham gia xây dựng nền tảng đánh giá kỹ năng lập trình OpenNezt và hệ thống phát hiện té ngã Safe-Fall.',
   avatar: '/images/avatar.png',
   location: 'Hà Nội, Việt Nam',
   email: 'congpx.ptit@gmail.com',
-  resumeUrl: '/resume.pdf',
-  socials: [
-    { label: 'GitHub', href: 'https://github.com/congpx-udu' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/your-username' },
-  ],
+  resumeUrl: '/cv/Pham-Xuan-Cong-CV.pdf',
+  socials: [{ label: 'GitHub', href: 'https://github.com/congpx-udu' }],
 } as const;
 
 // Third-party assets licensed CC BY 4.0 — the licence requires visible attribution.
@@ -38,8 +34,8 @@ export const navItems = [
 ] as const;
 
 export const about = [
-  'Tôi là Frontend Developer với niềm đam mê biến thiết kế thành những sản phẩm web mượt mà, có thể mở rộng và thân thiện với mọi người dùng.',
-  'Tôi quan tâm đặc biệt tới kiến trúc component, design system, hiệu năng (Core Web Vitals) và accessibility.',
+  'Tôi là sinh viên năm 3 ngành Công nghệ thông tin tại PTIT, đã có hơn một năm thực tập frontend với React và TypeScript — trong đó có một sản phẩm thương mại với VS Code extension phát hành trên Marketplace.',
+  'Tôi thích những bài toán giao diện có chiều sâu: trình phát video, dashboard dữ liệu, tối ưu SEO và hiệu năng (Core Web Vitals) cho ứng dụng SPA, đồng thời đang mở rộng sang backend để hướng tới Fullstack.',
 ] as const;
 
 export const services = [
@@ -50,35 +46,43 @@ export const services = [
 ] as const;
 
 export const skillGroups = [
-  { title: 'Ngôn ngữ', items: ['TypeScript', 'JavaScript (ES2023+)', 'HTML5', 'CSS3'] },
-  { title: 'Framework & Thư viện', items: ['React', 'Next.js', 'Zustand'] },
   {
-    title: 'Styling',
-    items: ['Tailwind CSS', 'CSS Modules', 'Responsive Design'],
+    title: 'Ngôn ngữ',
+    items: ['TypeScript', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'Python', 'C++', 'Java'],
   },
-  { title: 'Công cụ', items: ['Vite', 'Git', 'Vitest', 'Figma'] },
+  {
+    title: 'Frontend',
+    items: ['React', 'Next.js', 'UmiJS', 'Redux Toolkit', 'Redux-Saga', 'Context API'],
+  },
+  {
+    title: 'UI & Styling',
+    items: ['Tailwind CSS', 'Ant Design / Ant Design Pro', 'Responsive Design', 'Accessibility'],
+  },
+  { title: 'Biểu đồ & Media', items: ['Recharts', 'ApexCharts', 'HLS.js', 'three.js'] },
+  { title: 'Backend', items: ['Node.js', 'Express', 'MongoDB', 'RESTful API'] },
+  { title: 'Công cụ', items: ['Git', 'Vite', 'Figma', 'Vercel', 'Render'] },
 ] as const;
 
 export const experiences = [
   {
     company: 'OpenNezt',
-    position: 'Intern Frontend Developer',
-    period: '1-2026 — Hiện tại',
+    position: 'Thực tập sinh Frontend',
+    period: '01/2026 — Hiện tại',
     highlights: [
-      'Phát triển và tối ưu hóa giao diện người dùng có khả năng thích ứng (responsive) bằng các framework hiện đại (React.js) nhằm đảm bảo trải nghiệm liền mạch trên mọi thiết bị.',
-      'Tích hợp RESTful API với các thư viện quản lý trạng thái (Redux/Context API) để đảm bảo luồng dữ liệu hiệu quả giữa frontend và backend.',
-      'Phối hợp với các nhà thiết kế UI/UX để chuyển đổi các bản mẫu Figma có độ chi tiết cao (high-fidelity) thành các ứng dụng web có tính tương tác và độ chính xác tuyệt đối đến từng điểm ảnh (pixel-perfect).',
-      'Tham gia vào quy trình làm việc Agile, bao gồm lập kế hoạch sprint và đánh giá mã nguồn chéo, nhằm duy trì chất lượng mã nguồn cao và đảm bảo tiến độ dự án.',
+      'Xây dựng màn hình xem lại phiên làm bài của ứng viên: trình phát video HLS nhiều phân đoạn có tua chính xác và thumbnail xem trước, timeline hoạt động đồng bộ cuộn với code diff, terminal và lịch sử hội thoại AI.',
+      'Xây dựng hạ tầng SEO cho ứng dụng SPA: prerender bằng Puppeteer, meta/Open Graph theo từng route, sitemap; tối ưu LCP bằng code splitting, lazy-load analytics và preload ảnh hero.',
+      'Phát triển thư viện đề, modal tạo đề nhiều bước, luồng onboarding và giao diện chấm điểm cho tech lead; hỗ trợ song ngữ Anh – Việt bằng i18next.',
+      'Tham gia backend (Express, MongoDB, BullMQ): quản lý phiên làm bài, pipeline xử lý video, đăng nhập bằng Google và magic code.',
     ],
   },
   {
-    company: 'ZenSoft',
-    position: 'Intern Frontend Developer',
-    period: '9-2025 — 12-2025',
+    company: 'ZentSoft',
+    position: 'Thực tập sinh Frontend',
+    period: '09/2025 — 12/2025',
     highlights: [
-      'Xây dựng các thư viện thành phần giao diện người dùng có thể tái sử dụng nhằm chuẩn hóa các mẫu thiết kế và đẩy nhanh chu trình phát triển trên nhiều dự án.',
-      'Tái cấu trúc kiến trúc frontend nhằm cải thiện khả năng bảo trì và đảm bảo tính tương thích trên các trình duyệt (Chrome, Safari, Edge).',
-      'Đóng góp vào các hoạt động đánh giá và họp rút kinh nghiệm sau mỗi Sprint nhằm tối ưu hóa năng suất và tiến độ bàn giao của nhóm.',
+      'Phát triển frontend trang quản trị hệ thống Safe-Fall (giám sát té ngã bằng cảm biến radar) bằng React, Ant Design, Redux Toolkit và Redux-Saga; thành viên đóng góp nhiều nhất team frontend.',
+      'Xây dựng module quản lý thiết bị: bảng có lọc, sắp xếp, phân trang, thêm/sửa/xoá; trang chi tiết chuyển chế độ phát hiện té ngã / theo dõi sức khoẻ từ xa, trạng thái online/offline.',
+      'Xây dựng dashboard thống kê bằng Recharts: thẻ KPI, trạng thái thiết bị, tỉ lệ té ngã và phân bố té ngã theo giờ.',
     ],
   },
 ] as const;

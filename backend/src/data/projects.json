@@ -58,10 +58,10 @@
   {
     "slug": "fall-detection-radar",
     "title": "Hệ thống quản lý radar phát hiện té ngã",
-    "summary": "Frontend cho hệ thống giám sát té ngã và sức khoẻ bằng radar: quản lý thiết bị, dashboard thống kê, lịch sử sự kiện và ảnh chụp khi phát hiện té ngã — thực hiện tại Zensoft.",
+    "summary": "Frontend cho hệ thống giám sát té ngã và sức khoẻ bằng radar: quản lý thiết bị, dashboard thống kê, lịch sử sự kiện và ảnh chụp khi phát hiện té ngã — thực hiện tại ZentSoft.",
     "description": "Té ngã là rủi ro lớn với người cao tuổi và bệnh nhân, đặc biệt khi không có người bên cạnh. Safe-Fall sử dụng các thiết bị radar đặt trong phòng để phát hiện té ngã và theo dõi sức khoẻ mà không cần camera giám sát liên tục; thiết bị liên tục gửi log về hệ thống và chụp lại ảnh khi phát hiện té ngã. Tôi là thành viên đóng góp nhiều nhất cho frontend của trang quản trị — nơi người vận hành quản lý toàn bộ thiết bị, theo dõi tình hình té ngã trên dashboard, tra cứu lịch sử sự kiện và xem lại hình ảnh để xác minh từng trường hợp.",
     "role": "Frontend Developer (đóng góp chính)",
-    "context": "Zensoft · Dự án nội bộ công ty · Team nhiều thành viên",
+    "context": "ZentSoft · Dự án nội bộ công ty · Team nhiều thành viên",
     "features": [
       "Quản lý thiết bị radar: danh sách có lọc, sắp xếp, phân trang; thêm, cập nhật, xoá thiết bị.",
       "Mỗi thiết bị hoạt động ở một trong hai chế độ — phát hiện té ngã hoặc theo dõi sức khoẻ — và có thể chuyển chế độ từ xa.",

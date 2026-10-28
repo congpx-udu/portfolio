@@ -45,6 +45,15 @@ export function HeroSection() {
               <ButtonAnchor href="#contact" variant="outline">
                 Liên hệ với tôi
               </ButtonAnchor>
+              {/* Opens in the browser's PDF viewer, which already offers a download button. */}
+              <ButtonAnchor
+                href={siteConfig.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="outline"
+              >
+                Xem CV
+              </ButtonAnchor>
             </Reveal>
           </div>
         </div>

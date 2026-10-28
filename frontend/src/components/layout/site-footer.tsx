@@ -5,7 +5,8 @@ import { Container } from '@/components/ui/container';
 import { credits, navItems, siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 
-type SocialLabel = (typeof siteConfig.socials)[number]['label'];
+// Every label that has an icon; a label in siteConfig.socials outside this union fails typecheck.
+type SocialLabel = 'GitHub' | 'LinkedIn';
 
 interface FooterColumnProps {
   title: string;
