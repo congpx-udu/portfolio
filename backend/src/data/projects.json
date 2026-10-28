@@ -1,0 +1,138 @@
+[
+  {
+    "slug": "opennezt-coding-assessment",
+    "title": "OpenNezt Coding Assessment",
+    "summary": "Nền tảng đánh giá kỹ năng lập trình gồm VS Code extension đã phát hành trên Marketplace và web dashboard opennezt.com — nơi nhà tuyển dụng xem lại toàn bộ quá trình ứng viên làm bài, từng prompt AI, từng dòng code.",
+    "description": "Trong thời đại AI, bài test lập trình truyền thống chỉ cho thấy kết quả cuối cùng mà không cho biết ứng viên đã làm như thế nào. OpenNezt giải quyết vấn đề đó: ứng viên làm bài ngay trong VS Code thông qua extension \"OpenNezt Coding Assessment\" — có khung chat AI tích hợp — trong khi extension ghi nhận prompt AI, thay đổi file, lệnh terminal và quay màn hình phiên làm bài. Toàn bộ dữ liệu được gửi về backend để phân tích, rồi hiển thị trên web dashboard opennezt.com, nơi nhà tuyển dụng và tech lead xem lại phiên làm bài như một đoạn phim có chú thích, đánh giá tư duy giải quyết vấn đề và chấm điểm theo tiêu chí. Tôi tham gia phát triển sản phẩm từ những commit đầu tiên tới khi phát hành, đóng góp chủ yếu ở frontend của website và giao diện extension.",
+    "role": "Frontend Developer",
+    "context": "OpenNezt · Sản phẩm thương mại đã ra mắt · Team nhiều thành viên",
+    "features": [
+      "VS Code extension: ứng viên nhận đề và làm bài ngay trong editor, có khung chat AI tích hợp; extension ghi nhận prompt AI, diff mỗi lần lưu file, lệnh terminal, output debug và quay màn hình.",
+      "Dashboard nhà tuyển dụng: quản lý ứng viên, gửi lời mời làm bài, thư viện đề có tìm kiếm và lọc theo tech stack, độ khó.",
+      "Xem lại phiên làm bài: video màn hình kèm timeline các mốc hoạt động, code diff, terminal, lỗi và lịch sử hội thoại với AI.",
+      "Chấm điểm cho tech lead theo bộ tiêu chí của từng đề.",
+      "Đăng nhập Google và magic code, giao diện song ngữ Anh – Việt, landing page tối ưu SEO."
+    ],
+    "contributions": [
+      "Xây dựng trang chi tiết phiên làm bài — màn hình phức tạp nhất sản phẩm: trình phát video HLS nhiều phân đoạn có tua và thumbnail xem trước khi rê chuột trên timeline; panel mốc hoạt động đồng bộ cuộn với code diff, terminal, lỗi và hội thoại AI; layout hai cột kéo thay đổi kích thước.",
+      "Phát triển thư viện đề (tìm kiếm, lọc, skeleton loading), modal tạo đề nhiều bước, luồng onboarding cho người dùng mới và giao diện chấm điểm cho tech lead.",
+      "Redesign modal tạo đề: stepper đánh số, validation không khoá nút mà đánh dấu mọi trường còn thiếu rồi tự cuộn và focus vào trường đầu tiên, chuyển toàn bộ nội dung sang i18n.",
+      "Xây dựng landing page với hiệu ứng text scramble và animation theo cuộn; trang Privacy Policy và Terms of Service responsive.",
+      "Dựng hạ tầng SEO cho SPA: component quản lý meta/Open Graph theo route, sitemap, robots.txt và script prerender bằng headless browser.",
+      "Tối ưu hiệu năng tải trang: code splitting theo route, lazy-load analytics, preload phần tử LCP và tinh chỉnh chia bundle.",
+      "Ở VS Code extension: phát triển giao diện webview cho khung chat (ô nhập có speech-to-text, chọn model, chế độ Plan/Act) và luồng làm bài (sảnh chờ, đồng hồ đếm giờ, nộp bài).",
+      "Tham gia backend: quản lý phiên và gom sự kiện theo lô, pipeline xử lý video với hàng đợi BullMQ, lưu trữ Cloudinary, đăng nhập bằng magic code và Google."
+    ],
+    "challenges": [
+      {
+        "title": "Phát lại phiên làm bài dài được ghi thành nhiều đoạn video",
+        "solution": "Viết hook useHlsPlayer ưu tiên phát HLS adaptive khi đã có manifest; với dữ liệu cũ chưa chuyển mã, tách riêng phần tính toán vị trí từng đoạn thành các hàm thuần để tua chính xác theo thời gian tuyệt đối xuyên qua các đoạn. Bổ sung thumbnail dạng sprite để xem trước khi rê chuột trên timeline."
+      },
+      {
+        "title": "SPA trả về trang trắng cho crawler và link preview",
+        "solution": "Viết script prerender chạy sau khi build: phục vụ bản production và dùng headless browser chụp HTML đã render của các route công khai, ghi đè vào dist/. Giữ index.html gốc trong bộ nhớ để mỗi route nhận đúng thẻ <head> riêng, và cho client render lại thay vì hydrate để tránh lệch markup do animation."
+      },
+      {
+        "title": "Landing page tải chậm, điểm LCP thấp",
+        "solution": "Chia code theo route, khởi tạo analytics lười (lazy), preload ảnh nền hero — phần tử LCP — với fetchpriority=high, và sửa cấu hình chia bundle khiến helper preload của Vite bị kẹt trong chunk không cần thiết ở lần tải đầu."
+      }
+    ],
+    "techStack": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "VS Code Extension API",
+      "HLS.js",
+      "i18next",
+      "Express",
+      "MongoDB"
+    ],
+    "image": "/images/projects/opennezt-coding-assessment.png",
+    "repoUrl": null,
+    "liveUrl": "https://opennezt.com/",
+    "year": 2026,
+    "featured": true,
+    "order": 1
+  },
+  {
+    "slug": "fall-detection-radar",
+    "title": "Hệ thống quản lý radar phát hiện té ngã",
+    "summary": "Frontend cho hệ thống giám sát té ngã và sức khoẻ bằng radar: quản lý thiết bị, dashboard thống kê, lịch sử sự kiện và ảnh chụp khi phát hiện té ngã — thực hiện tại Zensoft.",
+    "description": "Té ngã là rủi ro lớn với người cao tuổi và bệnh nhân, đặc biệt khi không có người bên cạnh. Safe-Fall sử dụng các thiết bị radar đặt trong phòng để phát hiện té ngã và theo dõi sức khoẻ mà không cần camera giám sát liên tục; thiết bị liên tục gửi log về hệ thống và chụp lại ảnh khi phát hiện té ngã. Tôi là thành viên đóng góp nhiều nhất cho frontend của trang quản trị — nơi người vận hành quản lý toàn bộ thiết bị, theo dõi tình hình té ngã trên dashboard, tra cứu lịch sử sự kiện và xem lại hình ảnh để xác minh từng trường hợp.",
+    "role": "Frontend Developer (đóng góp chính)",
+    "context": "Zensoft · Dự án nội bộ công ty · Team nhiều thành viên",
+    "features": [
+      "Quản lý thiết bị radar: danh sách có lọc, sắp xếp, phân trang; thêm, cập nhật, xoá thiết bị.",
+      "Mỗi thiết bị hoạt động ở một trong hai chế độ — phát hiện té ngã hoặc theo dõi sức khoẻ — và có thể chuyển chế độ từ xa.",
+      "Dashboard tổng quan: số thiết bị, thiết bị offline, số thiết bị theo từng chế độ, biểu đồ trạng thái và tần suất té ngã.",
+      "Lịch sử sự kiện té ngã và sức khoẻ, lọc theo loại sự kiện và khoảng thời gian.",
+      "Lưu và hiển thị ảnh do thiết bị chụp khi phát hiện té ngã để xác minh sự kiện.",
+      "Thông báo realtime qua WebSocket khi có sự kiện mới."
+    ],
+    "contributions": [
+      "Xây dựng trang đăng nhập admin có validate qua API, layout trang quản trị, header và hệ thống router (bao gồm trang chi tiết thiết bị và quản lý tài khoản admin).",
+      "Phát triển trang quản lý thiết bị: bảng danh sách có lọc, sắp xếp, phân trang; luồng tạo mới, cập nhật và xoá thiết bị.",
+      "Xây dựng trang chi tiết thiết bị: chuyển chế độ hoạt động (té ngã / sức khoẻ) có chặn thao tác khi thiết bị đang khởi động lại, trạng thái online/offline, thời gian hoạt động gần nhất tự cập nhật và ảnh do thiết bị chụp.",
+      "Dựng dashboard thống kê với các thẻ KPI, biểu đồ cột trạng thái thiết bị, biểu đồ tròn tỉ lệ thiết bị té ngã và biểu đồ té ngã theo giờ bằng Recharts.",
+      "Xây dựng trang cài đặt hệ thống, thông báo khi đổi chế độ hoặc trạng thái thiết bị; hoàn thiện style, định dạng thời gian và chuyển toàn bộ giao diện sang tiếng Anh."
+    ],
+    "challenges": [],
+    "techStack": ["React", "Vite", "Ant Design", "Redux Toolkit", "Redux-Saga", "Recharts"],
+    "image": null,
+    "repoUrl": null,
+    "liveUrl": null,
+    "year": 2025,
+    "featured": true,
+    "order": 2
+  },
+  {
+    "slug": "spa-management-system",
+    "title": "Hệ thống quản lý Spa",
+    "summary": "Hệ thống quản lý spa Luna gồm hai website build từ cùng một codebase — landing page đặt lịch online có xác thực OTP và trang quản trị cho admin, lễ tân, thu ngân — dự án môn học đã triển khai thực tế.",
+    "description": "Hệ thống số hoá toàn bộ quy trình vận hành của một spa, từ lúc khách đặt lịch tới lúc thanh toán và quản lý kho. Hệ thống gồm hai website chạy trên hai domain riêng nhưng dùng chung một codebase UmiJS: landing page cho khách hàng xem dịch vụ, đặt lịch và gửi đánh giá; và trang quản trị phân quyền cho ba vai trò — lễ tân tiếp nhận và xếp lịch, thu ngân lập hoá đơn, admin quản lý nhân sự, dịch vụ, kho và báo cáo doanh thu. Dự án làm theo nhóm trong khuôn khổ môn học; tôi phụ trách chính phần frontend (phần lớn commit giai đoạn phát triển), backend NestJS + MongoDB do thành viên khác đảm nhận.",
+    "role": "Frontend Developer (phụ trách chính)",
+    "context": "Dự án môn học · Làm việc nhóm · Đã triển khai thực tế",
+    "features": [
+      "Landing page: giới thiệu dịch vụ kèm modal chi tiết, phần đánh giá của khách hàng, trang gửi phản hồi.",
+      "Đặt lịch online: chọn dịch vụ và ngày, hệ thống gợi ý các khung giờ còn trống; xác nhận lịch hẹn bằng mã OTP gửi qua email.",
+      "Lễ tân: dashboard lịch hẹn trong ngày, cập nhật trạng thái nhanh, tạo lịch hẹn tại quầy, lịch tổng quan dạng calendar và gán chuyên viên còn trống cho dịch vụ.",
+      "Thu ngân: lập hoá đơn từ các phiếu dịch vụ đã hoàn thành, xác nhận thanh toán và xuất hoá đơn PDF để in.",
+      "Admin: dashboard KPI và biểu đồ doanh thu, báo cáo doanh thu, quản lý nhân viên, dịch vụ, khách hàng, nhà cung cấp, bảng lương.",
+      "Quản lý kho: nguyên vật liệu, định mức nguyên liệu cho từng dịch vụ (BOM), sổ kho nhập – xuất và dashboard tồn kho.",
+      "Thông báo cho nhân viên, phân quyền theo vai trò và giao diện responsive trên mobile."
+    ],
+    "contributions": [
+      "Xây dựng gần như toàn bộ frontend của cả hai website trên UmiJS và Ant Design Pro, từ landing page tới các module quản trị.",
+      "Thiết kế cơ chế build hai website từ một codebase: tách route theo biến môi trường, tối ưu bundle của landing page để không kéo theo code quản trị.",
+      "Phát triển luồng đặt lịch có gợi ý khung giờ trống và xác thực OTP, xử lý các trường hợp trùng lịch, sai mã, vượt số lần thử.",
+      "Xây dựng dashboard cho lễ tân, thu ngân và admin; biểu đồ doanh thu bằng ApexCharts; lịch hẹn dạng calendar bằng React Big Calendar có gom nhóm sự kiện.",
+      "Phát triển các module CRUD quản trị: nhân viên, dịch vụ, khách hàng, nhà cung cấp, nguyên vật liệu, BOM, sổ kho, phiếu dịch vụ, bảng lương, hoá đơn.",
+      "Xây dựng hệ thống thông báo bằng polling, đăng nhập và điều hướng theo vai trò, sidebar tuỳ biến và giao diện responsive cho mobile."
+    ],
+    "challenges": [
+      {
+        "title": "Hai website trên hai domain nhưng chỉ có một codebase",
+        "solution": "Tách cấu hình route theo biến môi trường APP_CONFIG_TARGET: bản landing chỉ chứa trang công khai, bản admin chỉ chứa đăng nhập và trang quản trị, còn khi dev thì gộp cả hai cho tiện thử. Vì plugin model của UmiJS đóng gói mọi model vào bundle chung, tôi dùng NormalModuleReplacementPlugin của webpack để thay các model chỉ dành cho admin bằng stub rỗng khi build landing — loại toàn bộ code quản trị và API kéo theo khỏi bundle của khách hàng."
+      },
+      {
+        "title": "Đặt lịch online dễ bị spam và trùng khung giờ",
+        "solution": "Lịch hẹn mới được tạo ở trạng thái chờ OTP và chỉ được xác nhận khi khách nhập đúng mã gửi qua email; giao diện xử lý gửi lại mã, sai mã và vượt số lần thử. Khung giờ được gợi ý từ API lịch trống; khi server báo slot vừa bị người khác đặt (409), giao diện tự tải lại danh sách khung giờ để khách chọn lại."
+      }
+    ],
+    "techStack": [
+      "UmiJS",
+      "React",
+      "TypeScript",
+      "Ant Design Pro",
+      "ApexCharts",
+      "React Big Calendar"
+    ],
+    "image": "/images/projects/spa-management-system.png",
+    "repoUrl": "https://github.com/congpx-udu/SPA_WEB_FRONTEND",
+    "liveUrl": null,
+    "year": 2026,
+    "featured": true,
+    "order": 3
+  }
+]
