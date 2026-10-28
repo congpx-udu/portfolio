@@ -4,7 +4,7 @@
     "title": "OpenNezt Coding Assessment",
     "summary": "Nền tảng đánh giá kỹ năng lập trình gồm VS Code extension đã phát hành trên Marketplace và web dashboard opennezt.com — nơi nhà tuyển dụng xem lại toàn bộ quá trình ứng viên làm bài, từng prompt AI, từng dòng code.",
     "description": "Trong thời đại AI, bài test lập trình truyền thống chỉ cho thấy kết quả cuối cùng mà không cho biết ứng viên đã làm như thế nào. OpenNezt giải quyết vấn đề đó: ứng viên làm bài ngay trong VS Code thông qua extension \"OpenNezt Coding Assessment\" — có khung chat AI tích hợp — trong khi extension ghi nhận prompt AI, thay đổi file, lệnh terminal và quay màn hình phiên làm bài. Toàn bộ dữ liệu được gửi về backend để phân tích, rồi hiển thị trên web dashboard opennezt.com, nơi nhà tuyển dụng và tech lead xem lại phiên làm bài như một đoạn phim có chú thích, đánh giá tư duy giải quyết vấn đề và chấm điểm theo tiêu chí. Tôi tham gia phát triển sản phẩm từ những commit đầu tiên tới khi phát hành, đóng góp chủ yếu ở frontend của website và giao diện extension.",
-    "role": "Frontend Developer",
+    "role": "Thực tập sinh Frontend",
     "context": "OpenNezt · Sản phẩm thương mại đã ra mắt · Team nhiều thành viên",
     "features": [
       "VS Code extension: ứng viên nhận đề và làm bài ngay trong editor, có khung chat AI tích hợp; extension ghi nhận prompt AI, diff mỗi lần lưu file, lệnh terminal, output debug và quay màn hình.",
@@ -45,6 +45,8 @@
       "VS Code Extension API",
       "HLS.js",
       "i18next",
+      "Puppeteer",
+      "BullMQ",
       "Express",
       "MongoDB"
     ],
@@ -60,7 +62,7 @@
     "title": "Hệ thống quản lý radar phát hiện té ngã",
     "summary": "Frontend cho hệ thống giám sát té ngã và sức khoẻ bằng radar: quản lý thiết bị, dashboard thống kê, lịch sử sự kiện và ảnh chụp khi phát hiện té ngã — thực hiện tại ZentSoft.",
     "description": "Té ngã là rủi ro lớn với người cao tuổi và bệnh nhân, đặc biệt khi không có người bên cạnh. Safe-Fall sử dụng các thiết bị radar đặt trong phòng để phát hiện té ngã và theo dõi sức khoẻ mà không cần camera giám sát liên tục; thiết bị liên tục gửi log về hệ thống và chụp lại ảnh khi phát hiện té ngã. Tôi là thành viên đóng góp nhiều nhất cho frontend của trang quản trị — nơi người vận hành quản lý toàn bộ thiết bị, theo dõi tình hình té ngã trên dashboard, tra cứu lịch sử sự kiện và xem lại hình ảnh để xác minh từng trường hợp.",
-    "role": "Frontend Developer (đóng góp chính)",
+    "role": "Thực tập sinh Frontend (đóng góp nhiều nhất team frontend)",
     "context": "ZentSoft · Dự án nội bộ công ty · Team nhiều thành viên",
     "features": [
       "Quản lý thiết bị radar: danh sách có lọc, sắp xếp, phân trang; thêm, cập nhật, xoá thiết bị.",
@@ -91,7 +93,7 @@
     "title": "Hệ thống quản lý Spa",
     "summary": "Hệ thống quản lý spa Luna gồm hai website build từ cùng một codebase — landing page đặt lịch online có xác thực OTP và trang quản trị cho admin, lễ tân, thu ngân — dự án môn học đã triển khai thực tế.",
     "description": "Hệ thống số hoá toàn bộ quy trình vận hành của một spa, từ lúc khách đặt lịch tới lúc thanh toán và quản lý kho. Hệ thống gồm hai website chạy trên hai domain riêng nhưng dùng chung một codebase UmiJS: landing page cho khách hàng xem dịch vụ, đặt lịch và gửi đánh giá; và trang quản trị phân quyền cho ba vai trò — lễ tân tiếp nhận và xếp lịch, thu ngân lập hoá đơn, admin quản lý nhân sự, dịch vụ, kho và báo cáo doanh thu. Dự án làm theo nhóm trong khuôn khổ môn học; tôi phụ trách chính phần frontend (phần lớn commit giai đoạn phát triển), backend NestJS + MongoDB do thành viên khác đảm nhận.",
-    "role": "Frontend Developer (phụ trách chính)",
+    "role": "Phụ trách chính Frontend",
     "context": "Dự án môn học · Làm việc nhóm · Đã triển khai thực tế",
     "features": [
       "Landing page: giới thiệu dịch vụ kèm modal chi tiết, phần đánh giá của khách hàng, trang gửi phản hồi.",

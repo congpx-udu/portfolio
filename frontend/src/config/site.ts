@@ -2,7 +2,7 @@
 
 export const siteConfig = {
   name: 'Phạm Xuân Công',
-  role: 'Frontend Developer',
+  role: 'Frontend Developer Intern',
   tagline: 'Kiến tạo trải nghiệm số mượt mà, tối ưu hiệu năng và tỉ mỉ đến từng điểm ảnh.',
   description:
     'Thực tập sinh Frontend với hơn một năm kinh nghiệm React và TypeScript, từng tham gia xây dựng nền tảng đánh giá kỹ năng lập trình OpenNezt và hệ thống phát hiện té ngã Safe-Fall.',
