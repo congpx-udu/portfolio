@@ -63,7 +63,18 @@ export const skillGroups = [
   { title: 'Công cụ', items: ['Git', 'Vite', 'Figma', 'Vercel', 'Render'] },
 ] as const;
 
+// Chronological: oldest first, so the timeline reads top-down to the present.
 export const experiences = [
+  {
+    company: 'ZentSoft',
+    position: 'Thực tập sinh Frontend',
+    period: '09/2025 — 12/2025',
+    highlights: [
+      'Phát triển frontend trang quản trị hệ thống Safe-Fall (giám sát té ngã bằng cảm biến radar) bằng React, Ant Design, Redux Toolkit và Redux-Saga; thành viên đóng góp nhiều nhất team frontend.',
+      'Xây dựng module quản lý thiết bị: bảng có lọc, sắp xếp, phân trang, thêm/sửa/xoá; trang chi tiết chuyển chế độ phát hiện té ngã / theo dõi sức khoẻ từ xa, trạng thái online/offline.',
+      'Xây dựng dashboard thống kê bằng Recharts: thẻ KPI, trạng thái thiết bị, tỉ lệ té ngã và phân bố té ngã theo giờ.',
+    ],
+  },
   {
     company: 'OpenNezt',
     position: 'Thực tập sinh Frontend',
@@ -73,16 +84,6 @@ export const experiences = [
       'Xây dựng hạ tầng SEO cho ứng dụng SPA: prerender bằng Puppeteer, meta/Open Graph theo từng route, sitemap; tối ưu LCP bằng code splitting, lazy-load analytics và preload ảnh hero.',
       'Phát triển thư viện đề, modal tạo đề nhiều bước, luồng onboarding và giao diện chấm điểm cho tech lead; hỗ trợ song ngữ Anh – Việt bằng i18next.',
       'Tham gia backend (Express, MongoDB, BullMQ): quản lý phiên làm bài, pipeline xử lý video, đăng nhập bằng Google và magic code.',
-    ],
-  },
-  {
-    company: 'ZentSoft',
-    position: 'Thực tập sinh Frontend',
-    period: '09/2025 — 12/2025',
-    highlights: [
-      'Phát triển frontend trang quản trị hệ thống Safe-Fall (giám sát té ngã bằng cảm biến radar) bằng React, Ant Design, Redux Toolkit và Redux-Saga; thành viên đóng góp nhiều nhất team frontend.',
-      'Xây dựng module quản lý thiết bị: bảng có lọc, sắp xếp, phân trang, thêm/sửa/xoá; trang chi tiết chuyển chế độ phát hiện té ngã / theo dõi sức khoẻ từ xa, trạng thái online/offline.',
-      'Xây dựng dashboard thống kê bằng Recharts: thẻ KPI, trạng thái thiết bị, tỉ lệ té ngã và phân bố té ngã theo giờ.',
     ],
   },
 ] as const;
