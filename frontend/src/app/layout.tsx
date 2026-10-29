@@ -40,7 +40,13 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="vi" className={`${beVietnamPro.variable} ${geistMono.variable}`}>
+    // data-scroll-behavior: Next 16 turns off the CSS smooth scrolling (globals.css) while it
+    // resets scroll on route change, so a new page starts at the top instead of gliding up.
+    <html
+      lang="vi"
+      data-scroll-behavior="smooth"
+      className={`${beVietnamPro.variable} ${geistMono.variable}`}
+    >
       <body>
         <StarsBackground />
         <a
